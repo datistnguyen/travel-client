@@ -108,7 +108,7 @@ const Tab2= (props)=> {
             Ngày ra: {moment(checkout).format("DD/MM/YYYY")}
           </div>
           <div className={"djlhjflksjdasdsaas"} style={{marginBottom: 16, fontSize: 16, paddingBottom: 10, borderBottom: "1px solid #000"}}>
-            Tổng thời gian lưu trữ: <span className={"dfjhkdjskljdasas "} style={{fontSize: 18}}><strong>{moment(checkout).diff(moment(checkin), "days")}</strong> đêm</span>
+            Tổng thời gian lưu chú: <span className={"dfjhkdjskljdasas "} style={{fontSize: 18}}><strong>{moment(checkout).diff(moment(checkin), "days")}</strong> đêm</span>
           </div>
           <div className={"djlhjflksjdasdsaas"} style={{marginBottom: 16, fontSize: 16, paddingBottom: 10, borderBottom: "1px solid #000"}}>
             Phòng đã chọn: <div className={"dfjhkdjskljdasas "} style={{fontSize: 18, fontWeight: 600}}>

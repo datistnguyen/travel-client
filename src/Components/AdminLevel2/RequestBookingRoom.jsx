@@ -84,7 +84,6 @@ const ListRequest = (props) => {
             <tr className={"jakwjkjeaklwwa"}>
               <th style={{ fontWeight: 600 }}>Tên khách hàng</th>
               <th style={{ fontWeight: 600 }}>Số điện thoại</th>
-              <th style={{ fontWeight: 600 }}>Loại phòng</th>
               <th style={{ fontWeight: 600 }}>Hình thức thanh toán</th>
               <th style={{ fontWeight: 600 }}>Trạng thái</th>
               <th style={{ fontWeight: 600 }}>Check in</th>
@@ -97,9 +96,8 @@ const ListRequest = (props) => {
               data?.slice(parseInt(page) * offSet -5, parseInt(page) * offSet)?.map((item, key)=> <tr key={key} className={"jkajksljeklaresas"}>
               <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>{item?.user_booking}</td>
               <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>0{item?.phone}</td>
-              <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>{item?.room_name}</td>
               <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>{item?.payment_method || "Chưa thanh toán"}</td>
-              <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>{item?.booking_status=== "booking waiting approve" && "Chờ thanh toán"}</td>
+              <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>{item?.booking_status=== "booking waiting approve" && "Chờ xác nhận"}</td>
               <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>{item?.check_in}</td>
               <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>{item?.check_out}</td>
               <td style={{ textAlign: "center" , whiteSpace: "nowrap", height: 100}}>

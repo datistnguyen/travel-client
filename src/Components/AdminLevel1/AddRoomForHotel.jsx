@@ -58,7 +58,7 @@ const MainAddRoom = (props) => {
       <Tab1 roomName={roomName} setRoomName={setRoomName} price={price} setPrice={setPrice} numberPeople={numberPeople} setNumberPeople={setNumberPeople} roomArea={roomArea} setRoomArea={setRoomArea} />
       <br />
       <br />
-      <Convenient convenient={properties} setConvenient={setProperties} />
+      <Convenient is_add_room={true} convenient={properties} setConvenient={setProperties} />
       <br /><br />
       <Image listImage={listImage} setListImage={setListImage} isChooseImage={isChooseImage} />
       <br />

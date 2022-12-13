@@ -28,6 +28,7 @@ import list_activities from "../../api/admin/list_activities";
 import PopupConfirm from "../PopupConfirm/PopupConfirm";
 import delete_event from "../../api/admin/delete_event";
 import PopupSnackBar from "../PopupConfirm/PopupSnackBar";
+import { Dialog, DialogContent, DialogContentText, DialogTitle, DialogActions } from "@mui/material";
 
 const AdminLevel1 = (props) => {
   return (
@@ -201,7 +202,9 @@ export const CommentsReport = (props) => {
 };
 
 export const ListEvents = (props) => {
+  const navigate= useNavigate()
   // eslint-disable-next-line
+  
   const [data, setData]= useState([])
   useEffect(()=> {
     list_activities(setData)
@@ -268,7 +271,7 @@ const Title = (props) => {
             }}
             onClick={() => navigate("/admin/event/manage/add/new")}
           >
-            Thêm event
+            Thêm sự kiện
           </button>
         )}
       </div>
@@ -277,7 +280,6 @@ const Title = (props) => {
 };
 
 const MainElementEvent = (props) => {
-  const navigate = useNavigate();
   const [openPopup, setOpenPopup]= useState(false)
   const [openSnackbar, setOpenSnackbar]= useState(false)
   const [messageSnackbar, setMessageSnackbar]= useState("")
@@ -737,6 +739,7 @@ const MainListCommentReport = (props) => {
 };
 
 const MainAddEvent = (props) => {
+  const navigate= useNavigate()
   const { user } = useContext(AppContext);
   const [place, setPlace] = useState("");
   const [title, setTitle] = useState("");
@@ -766,12 +769,15 @@ const MainAddEvent = (props) => {
       ])
     );
   };
+  const [popupSuccess, setPopupSuccess]= useState(()=> false)
+
   const add_event = async () => {
+    
     const list_img_final_unresolve = img?.map((item) =>
       uploadImageClient(item.img, setListImg)
     );
     const result = await Promise.all(list_img_final_unresolve);
-    add_new_event(
+    await add_new_event(
       place,
       title,
       result[0],
@@ -787,6 +793,7 @@ const MainAddEvent = (props) => {
       user?.full_name,
       setData
     );
+    setPopupSuccess(()=> true)
   };
   return (
     <div
@@ -1251,6 +1258,27 @@ const MainAddEvent = (props) => {
           </div>
         </div>
       </div>
+      <Dialog
+        open={popupSuccess}
+        onClose={()=> setPopupSuccess(()=> false)}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Thông báo"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Tạo sự kiện thành công
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={()=> navigate("/admin/event/manage")}>Quay về màn hình danh sách sự kiện</Button>
+          <Button onClick={()=> window.location.reload()} autoFocus>
+            Tiếp tục tạo sự kiện
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
