@@ -5,7 +5,7 @@ import { SERVER_URL } from "../../config/config"
 const approve_hotel= async(bookingId, setData, setLoading)=> {
     setLoading(true)
     const res= await axios({
-        url: SERVER_URL+ "/api/booking/approve/"+ bookingId,
+        url: SERVER_URL+ "/api/hotel/approve/"+ bookingId,
         method: "put",
         headers: {
             "authorization": "Bearer "+ Cookies.get("accessToken")
