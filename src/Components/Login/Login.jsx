@@ -52,19 +52,19 @@ const MainLogin= ()=> {
         Đăng nhập
       </div>
       <div className={"wrap-input-auth-page"}>
-        <InputTemplate onBlur={checkEmail} type={"email"} onChange={(e)=> setEmail(e.target.value)} value={email} placeholder={"Email hoặc sdt"} className={"inp-tml-email"}  />
+        <InputTemplate onBlur={checkEmail} type={"email"} onChange={(e)=> setEmail(e.target.value)} value={email} placeholder={"Tên đăng nhập"} className={"inp-tml-email"}  />
       </div>
-      {
+      {/* {
         validEmail=== false && <div style={{fontSize: 12, width: "90%", color: "red", textAlign: "left"}}>Email hoặc số điện thoại không hợp lệ</div>
 
-      }
+      } */}
       <div className={"wrap-input-auth-page"}>
         <InputTemplate onBlur={checkPassword} type={"password"} onChange={(e)=> setPassword(e.target.value)} value={password} placeholder={"Mật khẩu"} className={"inp-tml-password"}  />
       </div>
-      {
+      {/* {
         validPassword=== false && <div style={{fontSize: 12, width: "90%", color: "red"}}>Mật khẩu cần phải tối thiểu 8 chữ cái bao gồm chữ số, chữ cái viết thường, chữ cái viết hoa và một ký tự đặc biệt</div>
 
-      }
+      } */}
       <br />
       {
         message && <div className={"fksdklkdsasaas"} style={{margin: "8px 0", width: "90%"}}>{message}</div>
